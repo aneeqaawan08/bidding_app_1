@@ -1,0 +1,31 @@
+<h3>Item Details</h3>
+
+<p> Title: <%= @item.title %> </p>
+<p> Price: <%= @item.price%> </p>
+<p> Category: <%= @item.category.title%> </p>
+<p> Description: <%= @item.description %> </p>
+<%# <p>image:<%= cl_image_tag(@category.image.key,width: 200, height: 100, crop: :scale, effect: "cartoonify") if @category.image.attached? %></p>
+<%= image_tag (@item.image.url),style:"width:50px" if @item.image.present?%>
+<br>
+
+<% if user_signed_in?%>
+<h4> price:</h4>
+<div id= "bid_pane">
+<% @item.bids.each do |bid|%>
+<%= render 'bids/bid', bid: bid%>
+<br>
+<%end%>
+<br>
+</div>
+<div>
+<h3> Add bidding</h3>
+<%= render 'bids/form' %>
+</div>
+<br>
+<%end%>
+
+<% if user_signed_in?%>
+<%= link_to 'Back', items_path %> 
+<% else %>
+<%= link_to 'Back', root_path %> 
+<%end%>

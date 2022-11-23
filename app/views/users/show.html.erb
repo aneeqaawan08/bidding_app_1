@@ -1,0 +1,11 @@
+<h3> User Details</h3>
+
+<p> Name: <%= @user.name %> </p>
+<p> Phone_no: <%= @user.phone_no %> </p>
+<p> Email: <%= @user.email %> </p>
+<p> image: <%= image_tag (@user.image.url), style:"width:200px" if @user.image.present? %></p>
+
+ 
+<%= link_to "Back",  :back %>
+  
+  

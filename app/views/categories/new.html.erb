@@ -1,0 +1,18 @@
+<h3> Create New Category</h3>
+
+<%= form_for @category do |f| %> 
+
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :title %></div>
+      <%= f.text_field :title, autofocus: true, autocomplete: "Title" %>
+      </div>
+      
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :image %></div>
+      <%= f.file_field :image, direct_upload: true, autocomplete: "image" %>
+      </div>
+      
+      <div class="actions">
+      <%= f.submit "submit" %>
+      </div>
+      <% end %>

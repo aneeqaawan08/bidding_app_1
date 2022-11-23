@@ -1,0 +1,33 @@
+<h3> Create New Item</h3>
+
+<%= form_for @item do |f| %> 
+
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :title %></div>
+      <%= f.text_field :title, autofocus: true, autocomplete: "Title" %>
+      </div>
+
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :price %></div>
+      <%= f.number_field :price, direct_upload: true, autocomplete: "Price" %>
+      </div>
+      
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :description %></div>
+      <%= f.text_field :description, autofocus: true, autocomplete: "Description" %>
+      </div>
+      
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :image %></div>
+      <%= f.file_field :image, direct_upload: true, autocomplete: "Image" %>
+      </div>
+      
+      <%=f.collection_select :category_id, Category.all, :id, :title, promt: true %>
+      <br>
+      <%= f.text_field :user_id ,class: 'col-lg-4 form-control',
+      value: current_user.id, type: :hidden%><br>
+      
+      <div class="actions">
+      <%= f.submit "submit" %>
+      </div>
+      <% end %>

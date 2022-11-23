@@ -1,0 +1,19 @@
+Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
+  root 'home#index'
+
+  resources :users, only: [:show, :index,:destroy] do
+  end
+
+  resources :categories
+  # resources :items
+  resources :items  do
+     resources :bids
+
+   end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end

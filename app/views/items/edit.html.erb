@@ -1,0 +1,37 @@
+<h3>Edit Item</h3>
+
+<%= @item.errors.full_messages.first if @item.errors.any? %>
+ 
+
+<%= form_for @item do |f| %> 
+
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :title %></div>
+      <%= f.text_field :title, autofocus: true, autocomplete: "Title" %>
+      </div>
+      
+      
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :price %></div>
+      <%= f.number_field :price, direct_upload: true, autocomplete: "Price" %>
+      </div>
+
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :description %></div>
+      <%= f.text_field :description, autofocus: true, autocomplete: "Description" %>
+      </div>
+    
+      <div class= "mb-3">
+      <div class="form-label"><%= f.label :image %></div>
+      <%= f.file_field :image, direct_upload: true, autocomplete: "Image" %>
+      </div>
+
+      <%=f.collection_select :category_id, Category.all, :id, :title, promt: true %> 
+      <br>
+       <br>
+      <div class="actions">
+      <%= f.submit "submit" %>
+      </div>
+<% end %>
+<br>
+<%= link_to 'Back', items_path %> 

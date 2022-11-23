@@ -1,0 +1,20 @@
+<h3>Show category </h3>
+
+<p> Title: <%= @category.title%> </p>
+
+<%# <p>image:<%= cl_image_tag(@category.image.key,width: 200, height: 100, crop: :scale, effect: "cartoonify") if @category.image.attached? %></p>
+ <%= image_tag (@category.image.url),style:"width:200px" if @category.image.present?%>
+ <br>
+ <br>
+<% if user_signed_in?%>
+<%= link_to 'Back', categories_path %> 
+<% else %>
+<%= link_to 'Back', root_path %> 
+<%end%>
+<br>
+
+<%# <% if user_signed_in?%> 
+<%# <%= link_to 'Edit ', edit_category_path %><br> 
+<%# <%= link_to 'delete ', category_path, method: :delete %><br> 
+<%# <%= link_to 'new', new_category_path %><br>  
+<%# <%end%> 
