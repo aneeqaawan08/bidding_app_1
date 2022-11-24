@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  root 'home#index'
+  root to: "home#index"
 
-  resources :users, only: [:show, :index,:destroy] do
+  resources :users, only: [:show, :edit, :update, :index,:destroy] do
   end
 
   resources :categories

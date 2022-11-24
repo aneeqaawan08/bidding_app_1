@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+    load_and_authorize_resource
 
     def new
         @category = Category.new
@@ -22,8 +23,9 @@ class CategoriesController < ApplicationController
 
 
     def index
-        @categories = Category.all
         
+        @categories = Category.all
+       
     end
     
     def edit

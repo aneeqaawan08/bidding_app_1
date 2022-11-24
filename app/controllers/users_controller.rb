@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
+
   def show
     @user = current_user
         # @user = User.find(params[:id])
@@ -19,7 +21,9 @@ class UsersController < ApplicationController
   end
  
   def index
+    if can? :index, @user
      @users = User.all
+    end
   end
 
   def destroy

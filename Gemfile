@@ -31,6 +31,8 @@ gem 'bootstrap', '~>5.2.1'
 
 gem "letter_opener", group: :development
 
+gem 'cancancan'
+
 
 gem 'jquery-rails'
 # Use Active Storage variant
