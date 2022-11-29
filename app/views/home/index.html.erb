@@ -1,44 +1,33 @@
-<h1>Welcome to bidding app 1</h1>
+<%# <h1>Welcome to bidding app 1</h1> %>
+
+<figure class="text-center"> 
+    <blockquote class="blockquote" style="padding-top: 23px; margin-bottom: 3rem;">
+       <h1><p>Welcome to Bidding App 1</p></h1>
+     </blockquote>
+</figure>
+
+  <div class= container>
+     <div class="row row-cols-1 row-cols-md-3 g-4">
+         <%Item.all.each do |item|%>
+         <div class="col">
+            <div class="card h-100 border-secondary mb-3 items-card" style="max-width: 18rem;">
+               <%= image_tag (item.image.url),class:"card-img-top",style:"width:286px;" if item.image.present?%>
+               <div class="card-body h-70" style="padding: 0rem 1rem ">
+                  <h5 class="card-title"><%= item.title %></h5>
+                  <p class="card-text"><%= item.description %></p>
+               </div>
+               <div class="card-footer">
+                  <a href="#" class="card-link"><%= link_to 'Show', item %></a>
+               </div>
+             </div>
+             </div>
+          <%end%>
+          </div>
+    </div>
 
 
-<table class="table table-dark table-striped">
-  <thead>
-    <tr>
-     
-      <th>Title</th>
-     <th>Category</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-  <%Item.all.each do |item|%>
-        <tr>
-        <td><%= item.title %></td>
-        <td><%= item.category.title %></td>
-        <td><%= item.price %></td>
-        <td><%= item.description %></td>
-        <%# <td><%= cl_image_tag(category.image.key, width: 200, height: 100, crop: :scale, effect: "cartoonify") if category.image.attached?%> </td> 
-        <td> <%= image_tag (item.image.url),style:"width:50px" if item.image.present?%></td>
-        <td><a herf="#" class="card-link" ><%= link_to 'Show', item %></a></td>
-      <%end%>
-  </tbody>
-</table>
-
- <%if user_signed_in?%>
-      <%# <li><a href="/users/sign_out" data-method="delete"> Log Out</a></li> %>
-      <%# <td><%= link_to 'create new', new_category_path %> </td> 
-      
-      <%else%>
-    <%# <td><%= link_to 'sign out', destroy_user_session_path, :method => 'delete' %> </td>  
-    <%# <td><%= button_to "Log out", destroy_user_session_path, method: :delete %> </td>
-   <%# <td><%= link_to 'sign_up', new_user_registration_path %> </td>  
-
-   <%# <td><%= link_to 'sign_in', user_session_path %> </td>  
-    <%end%>
+ 
 
 
 

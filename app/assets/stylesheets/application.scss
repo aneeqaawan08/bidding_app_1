@@ -14,3 +14,20 @@
  *= require_self
  */
  @import 'bootstrap';
+
+ .items-card img{
+    height: 181px;
+ }
+
+ .square-box {
+     max-width: 300px;
+     min-height: 700px;
+     border: 2px solid rgb(25, 22, 22)
+     
+ }
+
+ .small-box{
+    max-width: 200px
+   
+ }
+ 
